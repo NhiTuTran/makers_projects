@@ -1,0 +1,50 @@
+<html>
+<head>
+    <link href="<%= url('/login_error_sucess.css') %>" rel="stylesheet" type="text/css" />
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+</head>
+    <body>
+
+        <header>
+        <div class="logo"><a href="/spaces"><img src="logo.png"></a></div>
+            <ul class="menu">
+                <li><a href="/spaces">Spaces</a></li>
+                <% if !session[:user_id].nil? %>
+                    <li>
+                        <form action="/logout" method="POST">
+                            <input type="submit" value="Logout" class="logout-btn">
+                        </form>
+                    </li>
+                <% else %>
+                    <li><a href="/">Log In</a></li>
+                 <% end %>
+
+            </ul>
+      </header>
+
+
+
+
+
+<div class="container">
+
+        <div class="hero">
+
+        <h1><%= @space.name %></h1>
+        <p> <%= @space.description %>
+            £<%= @space.price %>
+        </p>
+        </div>
+
+        <form action="/bookings/<%= @space.id %>" method="POST">
+
+          <label for="start_date">Start Date</label>
+          <input type="date" name="start_date" min="<%= Date.today.strftime('%Y-%m-%d') %>">
+
+          <label for="end_date">End Date</label>
+          <input type="date" name="end_date" min="<%= Date.today.strftime('%Y-%m-%d') %>">
+
+          <input type="submit" value="Request Booking">
+        </form>
+    </body>
+</html>

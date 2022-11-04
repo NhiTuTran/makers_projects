@@ -1,0 +1,65 @@
+<html>
+<head>
+    <link href="<%= url('/login_error_sucess.css') %>" rel="stylesheet" type="text/css" />
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+</head>
+    <body>
+
+    <header>
+        <div class="logo"><a href="/spaces"><img src="logo.png"></a></div>
+            <ul class="menu">
+                <li><a href="/spaces">Spaces</a></li>
+                <% if !session[:user_id].nil? %>
+                    <li>
+                        <form action="/logout" method="POST">
+                            <input type="submit" value="Logout" class="logout-btn">
+                        </form>
+                    </li>
+                <% else %>
+                    <li><a href="/">Log In</a></li>
+                 <% end %>
+
+            </ul>
+      </header>
+
+
+
+     <div class="container">
+        <div class="hero">
+            <h1>Book a Space</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <a href="/spaces/new">List a Space</a>
+        </div>
+
+        <form action="/search" method="POST">
+
+          <label for="start_date">Start Date</label>
+          <input type="date" name="start_date" min="<%= Date.today.strftime('%Y-%m-%d') %>">
+
+          <label for="end_date">End Date</label>
+          <input type="date" name="end_date" min="<%= Date.today.strftime('%Y-%m-%d') %>">
+
+          <input type="submit" value="See spaces available">
+        </form>
+
+
+        <% @spaces.each do |space| %>
+        <div class="spaces-card">
+
+            <div><img src="house<%=space.id%>.webp"></div>
+            <div class="space-description">
+                <h4><a href="/spaces/<%=space.id%>"><%= space.name %></a></h4>
+                <p>£<%= space.price %></p>
+            </div>
+        </div>
+
+
+
+
+            <% end %>
+
+
+    </div>
+
+    </body>
+</html>

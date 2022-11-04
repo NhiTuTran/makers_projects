@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+  </head>
+    <body>
+
+    <header>
+        <div class="logo"><a href="/spaces"><img src="../logo.png"></a></div>
+        <ul class="menu">
+            <li><a href="/spaces">Spaces</a></li>
+            <li><a href="/">Log Out</a></li>
+        </ul>
+    </header>
+
+    <div class="container">
+        <h1>List a Space</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+
+    <div class="container2">
+        <div class="hero">
+            <form method="POST" action="/spaces">
+
+            <label class="form-label">Name</label>
+            <div>
+                <input class="text-input" type ="text" name="name" />
+            </div>
+
+            <label class="form-label">Description</label>
+            <div>
+                <input class="text-input" type ="text" name="description" />
+            </div>
+
+            <label class="form-label">Price per night (£)</label>
+            <span class="input-symbol">
+                <input class="text-input" type ="float" name="price" />
+            </span>
+
+            <div>
+                <input class="submit-input" type ="submit" />
+            </div>
+            </form>
+        </div>
+    </div>
+
+  </body>
+</html>
