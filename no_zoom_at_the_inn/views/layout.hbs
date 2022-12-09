@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Mountains of Christmas' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="/images/sant.gif">
+  
+
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <title>Noel Navigator</title>
+
+</head>
+<body>
+    <div class="snowflake">
+  <a class="snowlink" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">❅</a>
+  </div>
+  <div class="snowflake">
+  <a class="snowlink" href="https://www.youtube.com/watch?v=j9jbdgZidu8">❅</a>
+  </div>
+  <div class="snowflake">
+  <a class="snowlink" href="https://www.youtube.com/watch?v=N-PyWfVkjZc">❆</a>
+  </div>
+  <div class="snowflake">
+  <a class="snowlink" href="https://www.youtube.com/watch?v=QQj3XyIOGZs">❄</a>
+  </div>
+  <div class="snowflake">
+  <a class="snowlink" href="https://www.youtube.com/watch?v=z-lw3x7Np1E">❅</a>
+  </div>
+  <div class="snowflake">
+  <a class="snowlink" href="https://www.youtube.com/watch?v=bMjlK8DYf1g">❆</a>
+  </div>
+  <div class="snowflake">
+  <a class="snowlink" href="https://www.youtube.com/watch?v=TN7PBdQu_PY">❄</a>
+  </div>
+  <div class="snowflake">
+  <a class="snowlink" href="https://www.youtube.com/watch?v=j9jbdgZidu8">❅</a>
+  </div>
+  <div class="snowflake">
+  <a class="snowlink" href="https://www.youtube.com/watch?v=j3fSknbR7Y4">❆</a>
+  </div>
+  <div class="snowflake">
+  <a class="snowlink" href="https://www.youtube.com/watch?v=E8gmARGvPlI">❄</a>
+  </div>
+</div>
+
+{{!-- Code for nav bar below --}}
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+        <ul class='nav navbar-nav'>
+            <a href="https://www.youtube.com/watch?v=HSmsq2iq4bQ"> <img class="santa" width="100px" src="/images/beaverclause.png" alt="" /></a>
+            <li><a id='nav-home' href="/">Home</a></li>
+            {{#if newUser}}
+            <li><a id='login-link' href="/sessions/new">Login</a></li>
+            <li><a id='signup-link' href="/users/new">Signup</a></li>
+        </ul>
+            {{else}} 
+            <li><a  id='lists-link' href="/lists">Lists</a></li>
+
+            <li><a  id='add-friends-link' href="/users/all">Users</a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Events
+            </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+            <li><a class="dropdown-item" href="/events">All Events</a></li>
+            <li><a class="dropdown-item" href="/events/mine">My Events</a></li>
+            <li><a class="dropdown-item" href="/events/new">Add new event</a></li>
+          </ul>
+        </li>
+
+            <li><a id='songs-link' href="/songs">Songs</a></li>
+            
+            <li><a id='profile-link' href="/users/profile">Profile</a></li>
+
+            
+
+        </ul>
+
+        <div class ="logOutButton"><form class="form-inline" action='/sessions?_method=DELETE' method='POST'><input  class="logout-input" type="submit" value="Log Out"></form></div> 
+        {{/if}}
+        </div>
+    </nav>
+
+
+<br>
+<br>
+
+<div id="main-heading-div">
+    <img id="holly-img-L" src="/images/holly.png">
+    <h1 id="main-heading"> Noel Navigator</h1>
+    <img id="holly-img-R" src="/images/holly.png">
+</div>
+
+<br>
+<br>
+<div id="countdown-scroll"><p id="countdown"></p></div>
+<script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("Dec 26, 2022 00:00:00").getTime();
+    // Get today's date and time
+    var now = new Date().getTime();
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    // Display the result in the element with id="coundown"
+    if (days === 1) {
+        document.getElementById("countdown").innerHTML = days + " Sleep until Christmas";
+    }
+    else if (days > 1) {
+        document.getElementById("countdown").innerHTML = days + " Sleeps until Christmas";
+    }
+    else if (days === 0) {
+        document.getElementById("countdown").innerHTML = "Merry Christmas";
+    }
+    else {
+        document.getElementById("countdown").innerHTML = "Put Your Tinsel Away.";
+    }
+      
+</script>
+
+
+<br>
+<br>
+{{{body}}}
+</body>
+</html>

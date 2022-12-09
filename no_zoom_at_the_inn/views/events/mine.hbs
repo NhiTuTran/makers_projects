@@ -1,0 +1,35 @@
+<center>
+<h1>My Events</h1>
+<br>
+<br>
+
+{{#each events }}
+<div class="form1">
+<h2>{{eventName}}</h2>
+<h3>Guests </h3>
+  {{#each (lookup ../arrayOfUsers @index)}}<br>
+  {{first_name}} {{last_name}} <br>
+  Dietary Requirements: {{dietary_requirements}} <br>
+  Wish List: 
+  {{#each wish_list}}
+  <li>{{this}}</li>
+  {{/each}}
+  <br>
+  {{/each}}
+  <br>
+  <br>
+  </div>
+{{/each}} 
+
+
+
+
+
+
+<br>
+<br>
+
+
+
+</center>
+

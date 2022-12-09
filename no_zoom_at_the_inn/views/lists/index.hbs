@@ -1,0 +1,34 @@
+<center>
+<h1>Lists</h1>
+
+<a id="new-list" href="/lists/new">Create New List</a>
+
+
+<br>
+<br>
+
+
+
+
+
+<h4>{{headingText}}</h4>
+
+<div id="lists">
+    {{#each lists}}
+    <div class="listcss">
+        
+        <div class="list-index-form">
+        <br>
+        <a id="listcss" href="/lists/view?list={{this._id}}"><h3>{{this.listName}}</h3></a>
+        <br>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+</center>
+
+
+
+
+
